@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 import joblib
 import numpy as np
 
-
+print("test")
 # create object
 app = Flask(__name__)
 
