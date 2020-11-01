@@ -9,7 +9,7 @@ import numpy as np
 # create object
 app = Flask(__name__)
 
-
+print("Changes from Mithun")
 # create end point to  train your model and save training data in pickle file
 @app.route('/train_model')
 def train():
