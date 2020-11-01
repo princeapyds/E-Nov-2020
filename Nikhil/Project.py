@@ -9,7 +9,7 @@ import numpy as np
 # create object
 app = Flask(__name__)
 
-print("Changes from Mithun")
+
 # create end point to  train your model and save training data in pickle file
 @app.route('/train_model')
 def train():
@@ -18,7 +18,7 @@ def train():
     y = data['Spuriosity Index(0/1)']
     logm = LogisticRegression()
     logm.fit(x, y)
-    joblib.dump(logm, 'train.pkl')
+    joblib.dump(logm, '../train.pkl')
     return "Model trained successfully"
 
 
@@ -26,7 +26,7 @@ def train():
 #  First we need to load pickle file for it to get training data ref
 @app.route('/test_model', methods=['POST'])
 def test():
-    pkl_file = joblib.load('train.pkl')
+    pkl_file = joblib.load('../train.pkl')
     test_data = request.get_json()
     f1 = test_data['Ambient Temperature']
     f2 = test_data['Calibration']
@@ -50,4 +50,4 @@ def test():
 
 
 #  run the application on port
-app.run(port=5001)
+app.run(port=5000)
